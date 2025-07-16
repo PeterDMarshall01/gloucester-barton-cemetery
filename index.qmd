@@ -1,0 +1,770 @@
+---
+title: "Gloucester, Barton cemetery - radiocarbon dating and chronological modelling"
+author:
+  - name: Peter Marshall
+    orcid: 0000-0002-1949-7702
+    corresponding: true
+    email: pete.chronologies@googlemail.com
+    roles:
+      - Analysis
+      - Simulation
+      - Reporting
+      - Visualization
+    affiliations:
+      - Chronologies
+keywords:
+  - Gloucester, Barton cemetery
+  - Radiocarbon dating
+  - Chronological modelling
+abstract: |
+  Chronological modelling of the available radiocarbon & coin dates from the Gloucester, Barton cemetery was undertaken following preliminary analysis of the dated inhumations diets indicated they all had a terrestiral diet. A series of simulation models were then run, to explore the effect of radiocarbon dating individuals from Block M that had been selcted for isotopic & aDNA analysis. The results of the simulation indicate that the submisison of further samples for radiocarbon dating is not going to improve the precision of estimates for the chronology of the Block M part of the cemetery.
+date: last-modified
+bibliography: references.bib
+number-sections: true
+number-depth: 3
+toc: true
+toc-depth: 3
+format:
+  html:
+    embed-resources: true
+    theme: default
+project:
+  type: website
+  output-dir: docs
+---
+
+# Introduction
+
+Between June 2013 and December 2018 Cotswold Archaeology (CA) carried out an archaeological investigation of the former Gloscat Media Studies site, Brunswick Road, Gloucester. The fieldwork on the Media Studies site occurred in two phases. The first phase of excavation covered 0.18ha and took place between June 2013 and November 2014. An additional 0.6ha in the northern corner of the development site (known as Block M) was investigated between January 2017 and December 2018 (the two excavation areas were contiguous).
+
+## Radiocarbon dating
+
+Fourteen radiocarbon measurements are available from the Gloscat Media Studies site (n=10) and Block M (n=4). The Gloscat Media Studies samples were analysed during March and May 2015 at Scottish Universities Environmental Research Centre (SUERC; @tbl-01). The Block M samples were analysed between November 2020 and February 2021 at the Bristol Radiocarbon Accelerator Mass Spectrometry (BRAMS) Facility.
+
+Details of the dated samples, radiocarbon ages, and associated stable isotopic measurements are provided in @tbl-01. The radiocarbon results are conventional radiocarbon ages [@StuiverPolach1977]. All SUERC they were corrected for fractionation using δ^13^C values measured during the dating process by Accelerator Mass Spectrometry (AMS), and at BRAMS using the δ^13^C value measured by Isotope Ratio Mass Spectrometry (IRMS). In addition, δ^13^C values and δ^15^N values have been obtained on sub-samples of the dated material by Isotope Ratio Mass Spectrometry, as these results more accurately reflect the natural isotopic composition of the sampled material.
+
+The pretreatment, combustion, graphitisation, and measurement by AMS of the sample dated at the Scottish Universities Environmental Research Centre (SUERC-) followed the methods outlined in [@dunbar2016] while those processed and dated by AMS at BRAMS followed the methods described in [@knowles_et_al_2019] and [@synal2007]
+
+::: {#tbl-01}
+| Laboratory Code | Material & context | Radiocarbon age (BP) | **δ^13^C~IRMS~ (‰)** | **δ^15^N~IRMS~ (‰)** | C:N |
+|------------|------------|------------|------------|------------|------------|
+| SUERC-58710 | Human bone: right arm. Sk7494. Well 7481 | 1649±31 | -20.1±0.2 | 11.1±0.3 | 3.3 |
+| SUERC-58711 | Human bone: right arm. Sk6191. Grave 6143 | 1748±29 | -19.5±0.2 | 11.4±0.3 | 3.3 |
+| SUERC-58712 | Human bone: left arm. Sk6120. Grave 6119 | 1855±31 | -20.7±0.2 | 10.6±0.3 | 3.5 |
+| SUERC-58713 | Human bone: right arm. Sk6338. Grave 6339 | 1759±29 | -19.7±0.2 | 7.5±0.3 | 3.3 |
+| SUERC-58717 | Charcoal: *Corylus avellana* roundwood. Deposit 8294 | 1874±28 | -24.6±0.2 | NA | NA |
+| SUERC-59634 | Human bone: left femur. Sk6920. Grave 6918 | 1664±29 | -19.8±0.2 | 10.8±0.3 | 3.3 |
+| SUERC-59806 | Human bone (cremated): Cremation 6445. Context 6446 | 1713±27 | -25.7±0.2 | NA | NA |
+| SUERC-61220 | Charcoal: *Alnus glutinosa/Corylus avellana*. Pit 6108. Context 6109 | 1920±29 | -23.6±0.2 | NA | NA |
+| SUERC-61221 | Charcoal: *Alnus glutinosa/Corylus avellana*. Deposit 6569 | 1927±29 | -24.8±0.2 | NA | NA |
+| SUERC-61222 | Charcoal: *Prunus*. Ditch 6566. Context 6565. | 1100±27 | -24.8±0.2 | NA | NA |
+| BRAMS-4172 | Human bone: rib. Sk2017. Grave 2016 | 1751±25 | -19.95±0.2 | 9.87±0.3 | NA |
+| BRAMS-4173 | Human bone: rib. Sk1819. Grave 1820 | 1778±25 | -19.69±0.2 | 10.39±0.3 | NA |
+| BRAMS-4174 | Human bone: right fibula. Sk1897. Grave 1898 | 1739±25 | -19.94±0.2 | 10.14±0.3 | NA |
+| BRAMS-4175 | Human bone: right rib. Sk1873. Grave 1874 | 1967±27 | -19.72±0.2 | 9.38±0.3 | NA |
+
+Gloucester Barton cemetery: radiocarbon & stable isotope measurements
+:::
+
+@tbl-01 Gloucester Barton cemetery: radiocarbon & stable isotope measurements
+
+## Assessment of existing radiocarbon dates
+
+### Diet-induced offsets
+
+Diet-induced offsets may arise when an animal consumes carbon from a reservoir that is not in equilibrium with the terrestrial biosphere @lanting_vanderplict_1988. Should one of the dietary reservoir sources possess an intrinsic radiocarbon offset, the animal will incorporate a proportion of radiocarbon that deviates from atmospheric equilibrium. Radiocarbon ages derived from such sources, if incorrectly calibrated using a solely terrestrial calibration curve, will yield anomalously old age estimates.
+
+@fig-01 and @fig-02 summarise the δ^13^C and δ^15^N values from human bone radiocarbon samples. These indicate that the dated individuals consumed a terrestrial based diet and the radiocarbon results are unlikely to be affected by any significant reservoir effects, so a fully terrestrial calibration curve can be employed.
+
+![Bivariate plot of *δ*^13^C and *δ*^15^N stable isotopic values of bone collagen](images/isotope_bivariate_plot.png){#fig-01}
+
+```{r}
+#| eval: false
+#| error: false
+#| warning: false
+#| message: false
+#| echo: true
+#| include: true
+#| code-fold: true
+
+# Load required libraries
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+# Read the Excel file
+# Change *.xlsx to the name of your Excel file
+# Change sheet= to the name of the sheet with the data on it you want to plot
+gloscat <- read_excel("Gloscat.xlsx", sheet = "Data") # change data to name of site name or something else
+
+# Filter for human bone samples with complete isotope data (use spreadsheet template otherwise change column headings)
+human_bone_complete <- gloscat %>% # change human_bone_complete to site name or something else
+  filter(Material == "Human bone",
+         !is.na(d13C), !is.na(d13Cerror),
+         !is.na(d15N), !is.na(d15Nerror)) %>%
+  select(LabCode, d13C, d13Cerror, d15N, d15Nerror)
+
+# View the filtered data
+print(human_bone_complete) # if you have changed human_bone_complete change here
+print(paste("Number of complete samples:", nrow(human_bone_complete))) 
+
+# Create δ13C vs δ15N bivariate plot with error bars
+isotope_plot <- ggplot(human_bone_complete, aes(x = d13C, y = d15N)) + # if you have changed human_bone_complete change here
+  # Add error bars
+  geom_errorbar(aes(ymin = d15N - d15Nerror, ymax = d15N + d15Nerror), 
+                width = 0.1, color = "gray50", alpha = 0.7) +
+  geom_errorbarh(aes(xmin = d13C - d13Cerror, xmax = d13C + d13Cerror), 
+                 height = 0.1, color = "gray50", alpha = 0.7) +
+  # Add data points
+  geom_point(size = 3, color = "darkblue", alpha = 0.8) +
+  # Add labels for each point
+  geom_text(aes(label = LabCode), 
+            vjust = -0.5, hjust = 0.5, size = 3, color = "black") +
+  # Customize the plot
+  labs(title = "Gloucester: Barton cemetery",
+       subtitle = expression(paste("Human bone collagen (radiocarbon)")),
+       x = expression(paste(delta^13, "C (per mille)")),
+       y = expression(paste(delta^15, "N (per mille)"))) +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, hjust = 0.5),
+        plot.subtitle = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        panel.grid.minor = element_blank())
+
+# Display the plot
+print(isotope_plot)
+
+# Save the plot
+ggsave("isotope_bivariate_plot.png", isotope_plot, 
+       width = 8, height = 6, dpi = 300)
+```
+
+![Bivariate plot of *δ*^13^C and *δ*^15^N stable isotopic values of bone collagen, together with potential sources](images/isotopeplot2.png){#fig-02}
+
+```{r}
+#| eval: false
+#| error: false
+#| warning: false
+#| message: false
+#| echo: true
+#| include: true
+#| code-fold: true
+
+#Add Food source ellipses & remove individual data labels
+
+# Read the Excel file for food source data
+gloscat_sources <- read_excel("Gloscat.xlsx", sheet = "Baseline") # change data to name of site name or something else
+
+# create plot without individual data labels
+isotope_plot2 <- ggplot(human_bone_complete, aes(x = d13C, y = d15N)) + # if you have changed human_bone_complete change here
+  # Add error bars
+  geom_errorbar(aes(ymin = d15N - d15Nerror, ymax = d15N + d15Nerror), 
+                width = 0.1, color = "gray50", alpha = 0.7) +
+  geom_errorbarh(aes(xmin = d13C - d13Cerror, xmax = d13C + d13Cerror), 
+                 height = 0.1, color = "gray50", alpha = 0.7) +
+  # Add data points
+  geom_point(size = 3, color = "darkblue", alpha = 0.8) +
+  # Add labels for each point
+  # Customize the plot
+  labs(title = "Gloucester: Barton cemtery",
+       subtitle = expression(paste("Human bone collagen (radiocarbon)")),
+       x = expression(paste(delta^13, "C (per mille)")),
+       y = expression(paste(delta^15, "N (per mille)"))) +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, hjust = 0.5),
+        plot.subtitle = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        panel.grid.minor = element_blank())
+
+# add food source ellipses
+isotope_plot2<- isotope_plot2 + stat_ellipse(data = gloscat_sources,
+                 aes(x = d13C, y = d15N, color = Source, fill = Source),
+                 type = "norm", level = 0.68,  # standard ellipse ≈ 1 SD
+                 geom = "polygon", alpha = 0.2, show.legend = TRUE)
+
+# Display the plot
+print(isotope_plot2)
+
+# Save the plot
+ggsave("isotopeplot2.png", isotope_plot2, 
+       width = 8, height = 6, dpi = 300)
+
+#if you want to see all the food source data use this
+isotope_plot3<-isotope_plot2 + geom_point(data = gloscat_sources,
+                           aes(x = d13C, y = d15N, color = Source),
+                           shape = 21, size = 3, fill = "white")
+
+# Display the plot
+print(isotope_plot3)
+
+# Save the plot
+ggsave("isotopeplot3.pnd", isotope_plot3, 
+       width = 8, height = 6, dpi = 300)
+
+```
+
+## Chronological modelling
+
+The chronological modelling presented here has been undertaken using OxCal 4.4 [@bronkramsey2009], and the internationally agreed calibration curve for the northern hemisphere (IntCal20; @reimer2020). The models are defined by the OxCal keywords and brackets on the left-hand side of @fig-03 & @fig-04 and by the CQL2 code provided below. In the figures, calibrated radiocarbon dates are shown in outline, and the posterior density estimates produced by the chronological modelling are shown in solid black. The other distributions correspond to aspects of the model. For example, the distribution *FirstBurialBlockM* (@fig-04) is the posterior density estimate for when the first dated individual in block M was interred. In the text and tables highest posterior density intervals, which describe the posterior distributions, are given in italics.
+
+![Probability distributions of dates from Gloucester: Barton cemetery. Each distribution represents the relative probability that an event occurs at a particular time. For each of the dates two distributions have been plotted: one in outline, which is the result of simple radiocarbon calibration, and a solid one, based on the chronological model used. The other component section of this model are shown in detail in @fig-04. The large square brackets down the left-hand side along with the OxCal keywords define the overall model. exactly.](images/GlosBartonCemeteryExisting01a.png){#fig-03}
+
+![Probability distributions of dates from Gloucester: Barton cemetery. The format is identical to that of @fig-03 apart from the result followed by ‘?’ that has been excluded from the model. The large square brackets down the left-hand side along with the OxCal keywords define the overall model.](images/GlosBartonCemeteryExisting01B.png){#fig-04}
+
+::: {.callout-note collapse="true"}
+## Expand to get the OxCal code for the model shown in Figures 3 and 4
+
+``` default
+ // Model loosely based on straigraphy in Holbrook et al. 2024
+ // BRAMS-4175 excluded for reason outlined in text
+ // 15 simulated dates between AD 250 and AD 350 
+ Options()
+ {
+  Resolution=1;
+ };
+ Plot()
+ {
+  Sequence("Gloucester: Barton cemtery")
+  {
+   Boundary("StartBartonCemteryActivity");
+   Phase("Barton Cemtery")
+   {
+    Sequence("Barton Cemtery")
+    {
+     Phase("Period 1")
+     {
+      R_Date("SUERC-58717", 1874, 28);
+      After("Period 1 Media studies coins")
+      {
+       U("Ditch 7965", 85, 96, 1);
+      };
+     };
+     Phase("Period 2")
+     {
+      Sequence("Cemetery")
+      {
+       Boundary("StartBartonCemetery");
+       Phase("Cemetery")
+       {
+        Phase("Media Studies")
+        {
+         First("FirstMediaStudiesburial");
+         R_Date("SUERC-58711", 1748, 29);
+         R_Date("SUERC-58712", 1855, 31);
+         R_Date("SUERC-58713", 1759, 29);
+         R_Date("SUERC-59634", 1664, 29);
+         R_Date("SUERC-59806", 1713, 27);
+         After("Period 2 Media Studies Coins")
+         {
+          U("Sk6133", 260, 290, 1);
+          U("Sk6133", 260, 290, 1);
+          U("Sk6137", 270, 290, 1);
+          U("Sk6175", 313.0, 315.0, 0.1);
+          U("Sk6326", 270, 290, 1);
+          U("Sk6550", 260, 290, 1);
+          U("Sk6601", 270, 290, 1);
+          U("Sk6604", 270, 290, 1);
+          U("Sk6903", 260, 290, 1);
+          U("Sk7082", 286, 293, 1);
+          U("Sk6685", 260, 290, 1);
+         };
+         Span("MediaStudiesburial");
+         Last("LastMediaStudiesburial");
+        };
+        Phase("Block M")
+        {
+         First("FirstBurialBlockM");
+         R_Date("BRAMS-4172", 1751, 25);
+         R_Date("BRAMS-4173", 1778, 25);
+         R_Date("BRAMS-4174", 1739, 25);
+         R_Date("BRAMS-4175", 1967, 27)
+         {
+          Outlier();
+         };
+         R_Simulate("AD 285", 285, 20);
+         R_Simulate("AD 349", 349, 20);
+         R_Simulate("AD 269", 269, 20);
+         R_Simulate("AD 256", 256, 20);
+         R_Simulate("AD 288", 288, 20);
+         R_Simulate("AD 282", 282, 20);
+         R_Simulate("AD 298", 298, 20);
+         R_Simulate("AD 260", 260, 20);
+         R_Simulate("AD 307", 307, 20);
+         R_Simulate("AD 271", 271, 20);
+         R_Simulate("AD 287", 287, 20);
+         R_Simulate("AD 274", 274, 20);
+         R_Simulate("AD 324", 324, 20);
+         R_Simulate("AD 272", 272, 20);
+         R_Simulate("AD 284", 284, 20);
+         After("Block M Coins")
+         {
+          U("Sk1119", 348, 350, 1);
+          U("Sk1873", 350, 353, 1);
+          U("Sk1519", 69, 79, 1);
+          U("Sk2017", 187.0, 189.0, 0.1);
+          U("Sk1831", 350, 353, 1);
+          U("Sk1474", 364, 378, 1);
+         };
+         Span("BlockMburial");
+         Last("LastBurialBlockM");
+        };
+       };
+       Span("BartonCemetery");
+       Boundary("EndBartonCemetery");
+      };
+      Phase("Well 7481")
+      {
+       R_Date("SUERC-58710", 1649, 31);
+      };
+      Phase("Deposit 6569")
+      {
+       R_Date("SUERC-61221", 1927, 29);
+      };
+      After("Period 2 Media studies coins")
+      {
+       U("Layer 6250", 364, 378, 1);
+      };
+      After("Period 2 Block M coins")
+      {
+       U("Ditch E", 69, 79, 1);
+       U("layer 1350", 81, 96, 1);
+       U("layer 1358", 85.0, 87.0, 01);
+       U("layer 1002", 343, 348, 1);
+       U("layer 1352", 364, 348, 1);
+      };
+     };
+     Phase("Period 3")
+     {
+      After("Pit 6108")
+      {
+       R_Date("SUERC-61220", 1920, 29);
+      };
+      After("Period 3 Media studies coins")
+      {
+       U("Pit 7803", 323.0, 325.0, 0.1);
+       U("Layer 7803", 364, 378, 1);
+      };
+     };
+     Phase("Period 4")
+     {
+      R_Date("SUERC-61222", 1100, 27);
+      After("Period 4 Media studies coins")
+      {
+       U("Layer 6070", 388, 402, 1);
+       U("Cleaning layer 6077", 267.0, 269.0, 0.1);
+      };
+     };
+     Phase("Period 5")
+     {
+      After("Period 5 Block M coins")
+      {
+       U("Soil layer 1276", 330, 335, 1);
+       U("Soil layer 1276", 270, 273, 1);
+       U("Ditch 1705", 364, 378, 1);
+       U("Ditch 1296", 318, 324, 1);
+       U("Posthole 1114", 307, 318, 1);
+      };
+     };
+     Phase("Period 6")
+     {
+      After("Period 6 Block M coins")
+      {
+       U("Garden soil 1326", 367, 375, 1);
+       U("Garden soil 1358", 367, 378, 1);
+       U("Garden soil 1358", 77.0, 79.0, 0.1);
+       U("Garden soil 1358", 81, 96, 1);
+       U("Garden soil 1358", 293, 296, 1);
+       U("Garden soil 1358", 270, 290, 1);
+       U("Garden soil 1358", 270, 291, 1);
+       U("Garden soil 1358", 270, 290, 1);
+       U("Garden soil 1358", 270, 290, 1);
+       U("Garden soil 1358", 270, 290, 1);
+       U("Garden soil 1358", 270, 290, 1);
+       U("Garden soil 1358", 270, 290, 1);
+       U("Garden soil 1358", 322, 233, 1);
+       U("Garden soil 1358", 330, 335, 1);
+       U("Garden soil 1358", 330, 335, 1);
+       U("Garden soil 1358", 330, 335, 1);
+       U("Garden soil 1358", 367, 375, 1);
+      };
+     };
+    };
+    Phase("Unstratified coins")
+    {
+     After("Block M coins")
+     {
+      U("", 386, 293, 1);
+      U("", 318, 324, 1);
+     };
+     After("Media Studies coins")
+     {
+      U("Cleaning layer 6150", 66.0, 68.0, 0.1);
+      U("Cleaning layer 6077", 270, 290, 1);
+      U("Cleaning layer 6077", 267, 269, 0.1);
+      U("Unstrat", 268, 270, 1);
+     };
+    };
+    Span("BartonOverall");
+   };
+   Boundary("EndBartonCemteryActivity");
+  };
+ };
+```
+:::
+
+# Simulations
+
+## Introduction
+
+We have constructed simulation models to determine the potential of further radiocarbon determinations from Gloucester Barton cemetery for improving the precision of estimates for the chronology of the cemetery.
+
+The components of a simulation model are those of any model. First the available informative prior beliefs are established, from the model of existing dates (see @fig-03 & @fig-04) and from the stratigraphic matrix of suitable samples. After this, radiocarbon dates can be simulated from the pool of suitable datable material and the appropriate prior information incorporated into the simulation model. Errors on the measurements are estimated from those recently obtained by the selected laboratory on similar material of similar age. In this process the actual date of the site has to be fed into the model, which is done on the basis of our existing understanding of the site chronology. Multiple models can be run for different actual ages and for different sampling strategies to see which approach might be most effective. Some examples of the simulations created during the process of identifying the number of samples required for this project are shown in Figure 2.
+
+## Methodology
+
+Calendar dates for each model were obtained using random number generation. This is a process of creating a sequence of numbers that don't follow any predictable pattern. They are widely used in simulations, cryptography and statistical modelling. We used the sample() function [@base]( to generate random integers (i.e. the dates) by sampling from a specified range. Below is the syntax:
+
+```{r}
+#| error: true
+#| warning: true
+#| message: true
+#| echo: true
+
+sample(250:350, 15, replace = FALSE)
+```
+
+Where: • x: Vector of numbers to sample from (eg AD 250–350);
+
+• size: Number of values to return (15: the number of inhumations being sample for isotope & aDNA));
+
+• replace: Whether sampling should be with replacement (FALSE).
+
+We then used this code as part of a large piece of code (see below) to generate a series of calendar dates for the R_Simulate function in OxCal [@bronkramsey2009] for simulations from 15 dates down to 2 dates and incorporated them into a series of models. The models are based on the assumption that the Block M part of the cemetery was in continuous use for a period of time ([@buck1992]) \[100 years\], between AD 250 and AD 350. Time and resources, given this exercise required the running of OxCal 140 models, were limited and we therefore were unable to evaluate what potential differences in the duration of burial activity and when it began and finished made to our date estimate.
+
+```{r}
+#| eval: false
+#| error: false
+#| warning: false
+#| message: false
+#| echo: true
+#| include: true
+#| code-fold: true
+
+library(openxlsx)
+library(readxl)
+library(writexl)
+library(dplyr)
+
+
+# Create a new workbook
+wb <- createWorkbook()
+
+# Loop from 15 dates down to 2 dates
+for(n in 15:2) {
+  # Simulate n dates between AD 250 and AD 350
+  dates <- sample(250:350, n, replace = FALSE)
+  
+  # Debug: check what dates contains
+  print(paste("n =", n, "dates =", paste(dates, collapse = ", ")))
+  
+  # Create a data frame
+  df <- data.frame(Simulated_Dates = dates)
+  
+  # Create sheet name
+  sheet_name <- paste0(n, "_simulated_dates")
+  
+  # Add worksheet and write data
+  addWorksheet(wb, sheet_name)
+  writeData(wb, sheet_name, df)
+}
+
+# Save the workbook
+saveWorkbook(wb, "GlosBartonCemetery_simulated_dates.xlsx", overwrite = TRUE)
+```
+
+@fig-05 shows an extract of the full model, Block M, with the 15 simulated dates for burials shown (R_Simulate....). Each model was run 10 times.
+
+::: figure
+![Part of OxCal simulation: Block M with 15 simulated burial dates (R_Simulate 2 simulated dates AD 250-350)](images/GlosBartonCemeterySimulation01.png){#fig-05}
+:::
+
+# Analysis of simulation outputs
+
+## Extracting output from OxCal models
+
+We extracted output from the OxCal models using the R code (see below). Running each model ten times as part of one OxCal analysis results in a considerable amount of data; hopefully the code makes this process less time consuming.
+
+```{r}
+#| eval: false
+#| error: false
+#| warning: false
+#| message: false
+#| echo: true
+#| include: true
+#| code-fold: true
+
+library(openxlsx)
+library(readxl)
+library(writexl)
+library(dplyr)
+
+
+# R code to extract @FirstBurialBlockM & @LastBurialBlockM estimates from Barton Cemetery simulation file
+# This is an example for extracting the parameters @FirstBurialBlockM and @LastBurialBlockM from a single OxCal files (10 models) with n simulated dates, You need to repeat for each OxCal model
+
+# Read the file (suppress warning about incomplete final line)
+file_path <- "GlosBartonCemeterySimulation06.txt" #You will need to change the file name
+data_lines <- readLines(file_path, warn = FALSE)
+
+# Extract lines containing @FirstBurialBlockM
+burial_lines <- data_lines[grep("@FirstBurialBlockM", data_lines)]
+
+# Display the found lines
+cat("Found", length(burial_lines), "@FirstBurialBlockM entries:\n")
+print(burial_lines)
+
+# Extract numerical values from @FirstBurialBlockM lines
+
+# Initialize vectors for different columns based on the visible pattern
+burial_data <- data.frame(
+  line_number = integer(),
+  estimate_1 = numeric(),
+  estimate_2 = numeric(),
+  estimate_3 = numeric(),
+  estimate_4 = numeric(),
+  stringsAsFactors = FALSE
+)
+
+# Process each @FirstBurialBlockM line
+for (i in seq_along(burial_lines)) {
+  line <- burial_lines[i]
+  
+  # Extract all numbers from the line
+  numbers <- regmatches(line, gregexpr("-?\\d+\\.?\\d*", line))[[1]]
+  numbers <- as.numeric(numbers)
+  
+  # Create a row for the data frame (pad with NA if fewer than 4 values)
+  row_data <- c(i, numbers, rep(NA, 4 - length(numbers)))[1:5]
+  burial_data <- rbind(burial_data, row_data)
+}
+
+# Set proper column names
+colnames(burial_data) <- c("Run", "68%start", "68%end", "95%start", "95%end")
+
+# Display the structured data
+cat("\nStructured burial estimates:\n")
+print(burial_data)
+
+
+burial_data <- burial_data %>%
+  mutate(range_68 = `68%end` - `68%start`,
+         range_95 = `95%end` - `95%start`)
+print(burial_data)
+
+# Save the data
+write_xlsx(burial_data, "BartonBlockM06starts.xlsx")
+
+# PART 2
+# Extract lines containing @LastBurialBlockM
+burial_lines2 <- data_lines[grep("@LastBurialBlockM", data_lines)]
+
+# Display the found lines
+cat("Found", length(burial_lines2), "@LastBurialBlockM entries:\n")
+print(burial_lines)
+
+# Extract numerical values from @FirstBurialBlockM lines
+
+# Initialize vectors for different columns based on the visible pattern
+burial_data2 <- data.frame(
+  line_number = integer(),
+  estimate_1 = numeric(),
+  estimate_2 = numeric(),
+  estimate_3 = numeric(),
+  estimate_4 = numeric(),
+  stringsAsFactors = FALSE
+)
+
+# Process each @LastBurialBlockM line
+for (i in seq_along(burial_lines2)) {
+  line <- burial_lines2[i]
+  
+  # Extract all numbers from the line
+  numbers <- regmatches(line, gregexpr("-?\\d+\\.?\\d*", line))[[1]]
+  numbers <- as.numeric(numbers)
+  
+  # Create a row for the data frame (pad with NA if fewer than 4 values)
+  row_data <- c(i, numbers, rep(NA, 4 - length(numbers)))[1:5]
+  burial_data2 <- rbind(burial_data2, row_data)
+}
+
+# Set proper column names
+colnames(burial_data2) <- c("Run", "68%start", "68%end", "95%start", "95%end")
+
+# Display the structured data
+cat("\nStructured burial estimates:\n")
+print(burial_data2)
+
+
+burial_data2 <- burial_data2 %>%
+  mutate(range_68 = `68%end` - `68%start`,
+         range_95 = `95%end` - `95%start`)
+print(burial_data2)
+
+# Save the data
+write_xlsx(burial_data2, "BartonBlockM06ends.xlsx")
+
+
+```
+
+## Visualisation of output from OxCal models
+
+@fig-06 and @fig-07 show a summary of the date estimate for the parameter *FirstBlockMBurial*. It is clear, particularly, on @fig-06 that the submission of more radiocarbon samples does not increase precision. In fact the submission of further samples could increase the bandwith of the date estimate (eg, 13 & 14 samples).
+
+![Summary of 140 simulation models; 10 models for 15....2 simulated dates AD 250-350, showing precision vs sample size for *FirstBlockMBurial*](images/BlockMFirst.png){#fig-06}
+
+```{r}
+#| eval: false
+#| error: false
+#| warning: false
+#| message: false
+#| echo: true
+#| include: true
+#| code-fold: true
+
+# Visualizing differences across multiple sample sizes (15, 14, 13...2 samples)
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(gridExtra)
+library(viridis)
+
+# Read the data
+data <- read_excel("Query.xlsx", sheet = "BlockMStarts") # change data to name of site name or something else
+
+# Extract sample size from Parameter column (assumes format like "15Start", "14Start", etc.)
+data$Sample_Size <- as.numeric(gsub("Start", "", data$Parameter))
+data$Sample_Size_Label <- paste0(data$Sample_Size, " samples")
+data$Model_Run <- ave(seq_along(data$Parameter), data$Parameter, FUN = seq_along)
+
+# Create a duration column (End - Start)
+data$Duration <- data$End - data$Start
+
+# TREND ANALYSIS - Shows how precision changes with sample size
+summary_stats <- data %>%
+  group_by(Sample_Size) %>%
+  summarise(
+    Mean_Start = mean(Start),
+    SD_Start = sd(Start),
+    Mean_End = mean(End),
+    SD_End = sd(End),
+    Mean_Duration = mean(Duration),
+    SD_Duration = sd(Duration),
+    CV_Start = sd(Start)/mean(Start) * 100,  # Coefficient of variation
+    .groups = 'drop'
+  )
+
+BlockMFirst <- ggplot(summary_stats, aes(x = Sample_Size)) +
+  geom_line(aes(y = Mean_Start, color = "Start Date"), size = 1.2, alpha = 0.8) +
+  geom_point(aes(y = Mean_Start, color = "Start Date"), size = 3) +
+  geom_ribbon(aes(ymin = Mean_Start - SD_Start, ymax = Mean_Start + SD_Start, 
+                  fill = "Start Date"), alpha = 0.3) +
+  geom_line(aes(y = Mean_End, color = "End Date"), size = 1.2, alpha = 0.8) +
+  geom_point(aes(y = Mean_End, color = "End Date"), size = 3) +
+  geom_ribbon(aes(ymin = Mean_End - SD_End, ymax = Mean_End + SD_End, 
+                  fill = "End Date"), alpha = 0.3) +
+  scale_color_manual(values = c("Start Date" = "#2E86AB", "End Date" = "#2E86AB")) +
+  scale_fill_manual(values = c("Start Date" = "#2E86AB", "End Date" = "#2E86AB")) +
+  scale_x_continuous(breaks = sort(unique(data$Sample_Size))) +
+  labs(title = "FirstBlockMBurial vs precision vs sample size",
+       subtitle = "Mean estimates with ±1 SD ribbons",
+       x = "Number of Samples",
+       y = "Posterior density estimate (cal AD)",
+       color = "Boundary",
+       fill = "Boundary") +
+  theme_classic() +
+  theme(legend.position = "none")
+
+ggsave("BlockMFirst.png", BlockMFirst, 
+       width = 8, height = 6, dpi = 300)
+
+```
+
+![Summary of 140 simulation models; 10 models for 15....2 simulated dates AD 250-350, showing bandwidth for *FirstBlockMBurial*](images/BlockMFirstBurial.png){#fig-07}
+
+```{r}
+#| eval: false
+#| error: false
+#| warning: false
+#| message: false
+#| echo: true
+#| include: true
+#| code-fold: true
+
+# Visualizing differences across multiple sample sizes (15, 14, 13...2 samples)
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(gridExtra)
+library(viridis)
+
+# Read the data
+data <- read_excel("Query.xlsx", sheet = "BlockMStarts") # change data to name of site name or something else
+
+# Extract sample size from Parameter column (assumes format like "15Start", "14Start", etc.)
+data$Sample_Size <- as.numeric(gsub("Start", "", data$Parameter))
+data$Sample_Size_Label <- paste0(data$Sample_Size, " samples")
+data$Model_Run <- ave(seq_along(data$Parameter), data$Parameter, FUN = seq_along)
+
+# Create a duration column (End - Start)
+data$Duration <- data$End - data$Start
+
+# TIMELINE VISUALIZATION - Shows date ranges across all sample sizes
+data$Sample_Group <- factor(data$Sample_Size)
+data$y_position <- as.numeric(factor(paste0(data$Sample_Size, "_", data$Model_Run)))
+
+BlockMFirstBurial <- ggplot(data, aes(y = reorder(paste0(data$Sample_Size, " samples - Run ", data$Model_Run), 
+                                   -y_position))) +
+  geom_segment(aes(x = Start, xend = End, color = factor(Sample_Size)), 
+               size = 2, alpha = 0.7) +
+  geom_point(aes(x = Start, color = factor(Sample_Size)), size = 1.5) +
+  geom_point(aes(x = End, color = factor(Sample_Size)), size = 1.5) +
+  scale_color_viridis_d(option = "plasma", direction = -1, name = "Sample Size") +
+  labs(title = "Barton Cemetery: FirstBurialBlockM by addional 14C measurements",
+       subtitle = "Bandwidth for each simulation",
+       x = "Date (cal AD)",
+       y = "Model Run") +
+  theme_classic() +
+  theme(axis.text.y = element_text(size = 6),
+        legend.position = "right") +
+  guides(color = guide_legend(override.aes = list(size = 3)))
+
+ggsave("BlockMFirstBurial.png", BlockMFirstBurial, 
+       width = 8, height = 6, dpi = 300)
+
+
+```
+
+@fig-08 and @fig-09 show a summary of the date estimate for the parameter *LastBlockMBurial*. It is clear, particularly, on @fig-09 that the submission of an 8 additional, or more radiocarbon samples does increase precision, note how the two lines gets closer together. The increase in precision is though not signficant.
+
+![Summary of 140 simulation models; 10 models for 15....2 simulated dates AD 250-350, showing precision vs sample size for *LastBlockMBurial*](images/BlockMLast.png){#fig-08}
+
+![Summary of 140 simulation models; 10 models for 15....2 simulated dates AD 250-350, showing bandwidth for *LastBlockMBurial*](images/BlockMLastBurial.png){#fig-09}
+
+# Conclusion
+
+The submission of more samples from the Block M cemetery is no recommended, unless specific burials are identified as particularly waranting scientific dating, ie they are spatially isolated from the main burial group, have unsual pathologies or isotopic signitures. 
+
+The analysis outlined above has been undertaken without access to the full site records, ie matricies, startigraphic narrative and thus the conlusions may need to be revised should this infomtayion become avaialble int he future.
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
+
+::::

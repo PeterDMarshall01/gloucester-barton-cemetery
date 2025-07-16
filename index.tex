@@ -1,0 +1,1325 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{agujournal2019}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{3}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{url} %this package should fix any errors with URLs in refs.
+\usepackage{lineno}
+\usepackage[inline]{trackchanges} %for better track changes. finalnew option will compile document with changes incorporated.
+\usepackage{soul}
+\linenumbers
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Gloucester, Barton cemetery - radiocarbon dating and chronological modelling},
+  pdfauthor={Peter Marshall},
+  pdfkeywords={Gloucester, Barton cemetery, Radiocarbon
+dating, Chronological modelling},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+
+\draftfalse
+
+\begin{document}
+\title{Gloucester, Barton cemetery - radiocarbon dating and
+chronological modelling}
+
+\authors{Peter Marshall\affil{1}}
+\affiliation{1}{Chronologies, }
+\correspondingauthor{Peter Marshall}{pete.chronologies@googlemail.com}
+
+
+\begin{abstract}
+Chronological modelling of the available radiocarbon \& coin dates from
+the Gloucester, Barton cemetery was undertaken following preliminary
+analysis of the dated inhumations diets indicated they all had a
+terrestiral diet. A series of simulation models were then run, to
+explore the effect of radiocarbon dating individuals from Block M that
+had been selcted for isotopic \& aDNA analysis. The results of the
+simulation indicate that the submisison of further samples for
+radiocarbon dating is not going to improve the precision of estimates
+for the chronology of the Block M part of the cemetery.
+\end{abstract}
+
+
+
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section{Introduction}\label{introduction}
+
+Between June 2013 and December 2018 Cotswold Archaeology (CA) carried
+out an archaeological investigation of the former Gloscat Media Studies
+site, Brunswick Road, Gloucester. The fieldwork on the Media Studies
+site occurred in two phases. The first phase of excavation covered
+0.18ha and took place between June 2013 and November 2014. An additional
+0.6ha in the northern corner of the development site (known as Block M)
+was investigated between January 2017 and December 2018 (the two
+excavation areas were contiguous).
+
+\subsection{Radiocarbon dating}\label{radiocarbon-dating}
+
+Fourteen radiocarbon measurements are available from the Gloscat Media
+Studies site (n=10) and Block M (n=4). The Gloscat Media Studies samples
+were analysed during March and May 2015 at Scottish Universities
+Environmental Research Centre (SUERC; Table~\ref{tbl-01}). The Block M
+samples were analysed between November 2020 and February 2021 at the
+Bristol Radiocarbon Accelerator Mass Spectrometry (BRAMS) Facility.
+
+Details of the dated samples, radiocarbon ages, and associated stable
+isotopic measurements are provided in Table~\ref{tbl-01}. The
+radiocarbon results are conventional radiocarbon ages (Stuiver \&
+Polach, 1977). All SUERC they were corrected for fractionation using
+δ\textsuperscript{13}C values measured during the dating process by
+Accelerator Mass Spectrometry (AMS), and at BRAMS using the
+δ\textsuperscript{13}C value measured by Isotope Ratio Mass Spectrometry
+(IRMS). In addition, δ\textsuperscript{13}C values and
+δ\textsuperscript{15}N values have been obtained on sub-samples of the
+dated material by Isotope Ratio Mass Spectrometry, as these results more
+accurately reflect the natural isotopic composition of the sampled
+material.
+
+The pretreatment, combustion, graphitisation, and measurement by AMS of
+the sample dated at the Scottish Universities Environmental Research
+Centre (SUERC-) followed the methods outlined in (Dunbar et al., 2016)
+while those processed and dated by AMS at BRAMS followed the methods
+described in (Knowles et al., 2019) and (Synal et al., 2007)
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\caption{Gloucester Barton cemetery: radiocarbon \& stable isotope
+measurements}\label{tbl-01}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Laboratory Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Material \& context
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Radiocarbon age (BP)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{δ\textsuperscript{13}C\textsubscript{IRMS} (‰)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{δ\textsuperscript{15}N\textsubscript{IRMS} (‰)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+C:N
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Laboratory Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Material \& context
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Radiocarbon age (BP)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{δ\textsuperscript{13}C\textsubscript{IRMS} (‰)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{δ\textsuperscript{15}N\textsubscript{IRMS} (‰)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+C:N
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+SUERC-58710 & Human~bone:~right~arm.~Sk7494.~Well~7481 & 1649±31 &
+-20.1±0.2 & 11.1±0.3 & 3.3 \\
+SUERC-58711 & Human~bone:~right~arm.~Sk6191.~Grave~6143 & 1748±29 &
+-19.5±0.2 & 11.4±0.3 & 3.3 \\
+SUERC-58712 & Human~bone:~left~arm.~Sk6120.~Grave~6119 & 1855±31 &
+-20.7±0.2 & 10.6±0.3 & 3.5 \\
+SUERC-58713 & Human~bone:~right~arm.~Sk6338.~Grave~6339 & 1759±29 &
+-19.7±0.2 & 7.5±0.3 & 3.3 \\
+SUERC-58717 & Charcoal:~\emph{Corylus~avellana}~roundwood.~Deposit~8294
+& 1874±28 & -24.6±0.2 & NA & NA \\
+SUERC-59634 & Human~bone:~left~femur.~Sk6920.~Grave~6918 & 1664±29 &
+-19.8±0.2 & 10.8±0.3 & 3.3 \\
+SUERC-59806 & Human~bone~(cremated):~Cremation~6445.~Context~6446 &
+1713±27 & -25.7±0.2 & NA & NA \\
+SUERC-61220 &
+Charcoal:~\emph{Alnus~glutinosa/Corylus~avellana}.~Pit~6108.~Context~6109
+& 1920±29 & -23.6±0.2 & NA & NA \\
+SUERC-61221 &
+Charcoal:~\emph{Alnus~glutinosa/Corylus~avellana}.~Deposit~6569 &
+1927±29 & -24.8±0.2 & NA & NA \\
+SUERC-61222 & Charcoal:~\emph{Prunus}.~Ditch~6566.~Context~6565. &
+1100±27 & -24.8±0.2 & NA & NA \\
+BRAMS-4172 & Human~bone:~rib.~Sk2017.~Grave~2016 & 1751±25 & -19.95±0.2
+& 9.87±0.3 & NA \\
+BRAMS-4173 & Human~bone:~rib.~Sk1819.~Grave~1820 & 1778±25 & -19.69±0.2
+& 10.39±0.3 & NA \\
+BRAMS-4174 & Human~bone:~right~fibula.~Sk1897.~Grave~1898 & 1739±25 &
+-19.94±0.2 & 10.14±0.3 & NA \\
+BRAMS-4175 & Human~bone:~right~rib.~Sk1873.~Grave~1874 & 1967±27 &
+-19.72±0.2 & 9.38±0.3 & NA \\
+\end{longtable}
+
+Table~\ref{tbl-01} Gloucester Barton cemetery: radiocarbon \& stable
+isotope measurements
+
+\subsection{Assessment of existing radiocarbon
+dates}\label{assessment-of-existing-radiocarbon-dates}
+
+\subsubsection{Diet-induced offsets}\label{diet-induced-offsets}
+
+Diet-induced offsets may arise when an animal consumes carbon from a
+reservoir that is not in equilibrium with the terrestrial biosphere
+Lanting \& Plicht (1998). Should one of the dietary reservoir sources
+possess an intrinsic radiocarbon offset, the animal will incorporate a
+proportion of radiocarbon that deviates from atmospheric equilibrium.
+Radiocarbon ages derived from such sources, if incorrectly calibrated
+using a solely terrestrial calibration curve, will yield anomalously old
+age estimates.
+
+Figure~\ref{fig-01} and Figure~\ref{fig-02} summarise the
+δ\textsuperscript{13}C and δ\textsuperscript{15}N values from human bone
+radiocarbon samples. These indicate that the dated individuals consumed
+a terrestrial based diet and the radiocarbon results are unlikely to be
+affected by any significant reservoir effects, so a fully terrestrial
+calibration curve can be employed.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/isotope_bivariate_plot.png}}
+
+}
+
+\caption{\label{fig-01}Bivariate plot of \emph{δ}\textsuperscript{13}C
+and \emph{δ}\textsuperscript{15}N stable isotopic values of bone
+collagen}
+
+\end{figure}%
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load required libraries}
+\FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Read the Excel file}
+\CommentTok{\# Change *.xlsx to the name of your Excel file}
+\CommentTok{\# Change sheet= to the name of the sheet with the data on it you want to plot}
+\NormalTok{gloscat }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"Gloscat.xlsx"}\NormalTok{, }\AttributeTok{sheet =} \StringTok{"Data"}\NormalTok{) }\CommentTok{\# change data to name of site name or something else}
+
+\CommentTok{\# Filter for human bone samples with complete isotope data (use spreadsheet template otherwise change column headings)}
+\NormalTok{human\_bone\_complete }\OtherTok{\textless{}{-}}\NormalTok{ gloscat }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# change human\_bone\_complete to site name or something else}
+  \FunctionTok{filter}\NormalTok{(Material }\SpecialCharTok{==} \StringTok{"Human bone"}\NormalTok{,}
+         \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(d13C), }\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(d13Cerror),}
+         \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(d15N), }\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(d15Nerror)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(LabCode, d13C, d13Cerror, d15N, d15Nerror)}
+
+\CommentTok{\# View the filtered data}
+\FunctionTok{print}\NormalTok{(human\_bone\_complete) }\CommentTok{\# if you have changed human\_bone\_complete change here}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Number of complete samples:"}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(human\_bone\_complete))) }
+
+\CommentTok{\# Create δ13C vs δ15N bivariate plot with error bars}
+\NormalTok{isotope\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(human\_bone\_complete, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ d13C, }\AttributeTok{y =}\NormalTok{ d15N)) }\SpecialCharTok{+} \CommentTok{\# if you have changed human\_bone\_complete change here}
+  \CommentTok{\# Add error bars}
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ d15N }\SpecialCharTok{{-}}\NormalTok{ d15Nerror, }\AttributeTok{ymax =}\NormalTok{ d15N }\SpecialCharTok{+}\NormalTok{ d15Nerror), }
+                \AttributeTok{width =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray50"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_errorbarh}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xmin =}\NormalTok{ d13C }\SpecialCharTok{{-}}\NormalTok{ d13Cerror, }\AttributeTok{xmax =}\NormalTok{ d13C }\SpecialCharTok{+}\NormalTok{ d13Cerror), }
+                 \AttributeTok{height =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray50"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \CommentTok{\# Add data points}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{color =} \StringTok{"darkblue"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \CommentTok{\# Add labels for each point}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =}\NormalTok{ LabCode), }
+            \AttributeTok{vjust =} \SpecialCharTok{{-}}\FloatTok{0.5}\NormalTok{, }\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \CommentTok{\# Customize the plot}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Gloucester: Barton cemetery"}\NormalTok{,}
+       \AttributeTok{subtitle =} \FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Human bone collagen (radiocarbon)"}\NormalTok{)),}
+       \AttributeTok{x =} \FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(delta}\SpecialCharTok{\^{}}\DecValTok{13}\NormalTok{, }\StringTok{"C (per mille)"}\NormalTok{)),}
+       \AttributeTok{y =} \FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(delta}\SpecialCharTok{\^{}}\DecValTok{15}\NormalTok{, }\StringTok{"N (per mille)"}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{, }\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+        \AttributeTok{plot.subtitle =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{, }\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+        \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{),}
+        \AttributeTok{axis.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{),}
+        \AttributeTok{panel.grid.minor =} \FunctionTok{element\_blank}\NormalTok{())}
+
+\CommentTok{\# Display the plot}
+\FunctionTok{print}\NormalTok{(isotope\_plot)}
+
+\CommentTok{\# Save the plot}
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"isotope\_bivariate\_plot.png"}\NormalTok{, isotope\_plot, }
+       \AttributeTok{width =} \DecValTok{8}\NormalTok{, }\AttributeTok{height =} \DecValTok{6}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/isotopeplot2.png}}
+
+}
+
+\caption{\label{fig-02}Bivariate plot of \emph{δ}\textsuperscript{13}C
+and \emph{δ}\textsuperscript{15}N stable isotopic values of bone
+collagen, together with potential sources}
+
+\end{figure}%
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Add Food source ellipses \& remove individual data labels}
+
+\CommentTok{\# Read the Excel file for food source data}
+\NormalTok{gloscat\_sources }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"Gloscat.xlsx"}\NormalTok{, }\AttributeTok{sheet =} \StringTok{"Baseline"}\NormalTok{) }\CommentTok{\# change data to name of site name or something else}
+
+\CommentTok{\# create plot without individual data labels}
+\NormalTok{isotope\_plot2 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(human\_bone\_complete, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ d13C, }\AttributeTok{y =}\NormalTok{ d15N)) }\SpecialCharTok{+} \CommentTok{\# if you have changed human\_bone\_complete change here}
+  \CommentTok{\# Add error bars}
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ d15N }\SpecialCharTok{{-}}\NormalTok{ d15Nerror, }\AttributeTok{ymax =}\NormalTok{ d15N }\SpecialCharTok{+}\NormalTok{ d15Nerror), }
+                \AttributeTok{width =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray50"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_errorbarh}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xmin =}\NormalTok{ d13C }\SpecialCharTok{{-}}\NormalTok{ d13Cerror, }\AttributeTok{xmax =}\NormalTok{ d13C }\SpecialCharTok{+}\NormalTok{ d13Cerror), }
+                 \AttributeTok{height =} \FloatTok{0.1}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray50"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \CommentTok{\# Add data points}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{color =} \StringTok{"darkblue"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \CommentTok{\# Add labels for each point}
+  \CommentTok{\# Customize the plot}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Gloucester: Barton cemtery"}\NormalTok{,}
+       \AttributeTok{subtitle =} \FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Human bone collagen (radiocarbon)"}\NormalTok{)),}
+       \AttributeTok{x =} \FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(delta}\SpecialCharTok{\^{}}\DecValTok{13}\NormalTok{, }\StringTok{"C (per mille)"}\NormalTok{)),}
+       \AttributeTok{y =} \FunctionTok{expression}\NormalTok{(}\FunctionTok{paste}\NormalTok{(delta}\SpecialCharTok{\^{}}\DecValTok{15}\NormalTok{, }\StringTok{"N (per mille)"}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{, }\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+        \AttributeTok{plot.subtitle =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{, }\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+        \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{),}
+        \AttributeTok{axis.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{),}
+        \AttributeTok{panel.grid.minor =} \FunctionTok{element\_blank}\NormalTok{())}
+
+\CommentTok{\# add food source ellipses}
+\NormalTok{isotope\_plot2}\OtherTok{\textless{}{-}}\NormalTok{ isotope\_plot2 }\SpecialCharTok{+} \FunctionTok{stat\_ellipse}\NormalTok{(}\AttributeTok{data =}\NormalTok{ gloscat\_sources,}
+                 \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ d13C, }\AttributeTok{y =}\NormalTok{ d15N, }\AttributeTok{color =}\NormalTok{ Source, }\AttributeTok{fill =}\NormalTok{ Source),}
+                 \AttributeTok{type =} \StringTok{"norm"}\NormalTok{, }\AttributeTok{level =} \FloatTok{0.68}\NormalTok{,  }\CommentTok{\# standard ellipse ≈ 1 SD}
+                 \AttributeTok{geom =} \StringTok{"polygon"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{show.legend =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Display the plot}
+\FunctionTok{print}\NormalTok{(isotope\_plot2)}
+
+\CommentTok{\# Save the plot}
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"isotopeplot2.png"}\NormalTok{, isotope\_plot2, }
+       \AttributeTok{width =} \DecValTok{8}\NormalTok{, }\AttributeTok{height =} \DecValTok{6}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
+
+\CommentTok{\#if you want to see all the food source data use this}
+\NormalTok{isotope\_plot3}\OtherTok{\textless{}{-}}\NormalTok{isotope\_plot2 }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data =}\NormalTok{ gloscat\_sources,}
+                           \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ d13C, }\AttributeTok{y =}\NormalTok{ d15N, }\AttributeTok{color =}\NormalTok{ Source),}
+                           \AttributeTok{shape =} \DecValTok{21}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{fill =} \StringTok{"white"}\NormalTok{)}
+
+\CommentTok{\# Display the plot}
+\FunctionTok{print}\NormalTok{(isotope\_plot3)}
+
+\CommentTok{\# Save the plot}
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"isotopeplot3.pnd"}\NormalTok{, isotope\_plot3, }
+       \AttributeTok{width =} \DecValTok{8}\NormalTok{, }\AttributeTok{height =} \DecValTok{6}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Chronological modelling}\label{chronological-modelling}
+
+The chronological modelling presented here has been undertaken using
+OxCal 4.4 (Bronk Ramsey, 2009), and the internationally agreed
+calibration curve for the northern hemisphere (IntCal20; Reimer et al.
+(2020)). The models are defined by the OxCal keywords and brackets on
+the left-hand side of Figure~\ref{fig-03} \& Figure~\ref{fig-04} and by
+the CQL2 code provided below. In the figures, calibrated radiocarbon
+dates are shown in outline, and the posterior density estimates produced
+by the chronological modelling are shown in solid black. The other
+distributions correspond to aspects of the model. For example, the
+distribution \emph{FirstBurialBlockM} (Figure~\ref{fig-04}) is the
+posterior density estimate for when the first dated individual in block
+M was interred. In the text and tables highest posterior density
+intervals, which describe the posterior distributions, are given in
+italics.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/GlosBartonCemeteryExisting01a.png}}
+
+}
+
+\caption{\label{fig-03}Probability distributions of dates from
+Gloucester: Barton cemetery. Each distribution represents the relative
+probability that an event occurs at a particular time. For each of the
+dates two distributions have been plotted: one in outline, which is the
+result of simple radiocarbon calibration, and a solid one, based on the
+chronological model used. The other component section of this model are
+shown in detail in Figure~\ref{fig-04}. The large square brackets down
+the left-hand side along with the OxCal keywords define the overall
+model. exactly.}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/GlosBartonCemeteryExisting01B.png}}
+
+}
+
+\caption{\label{fig-04}Probability distributions of dates from
+Gloucester: Barton cemetery. The format is identical to that of
+Figure~\ref{fig-03} apart from the result followed by `?' that has been
+excluded from the model. The large square brackets down the left-hand
+side along with the OxCal keywords define the overall model.}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, toptitle=1mm, breakable, colframe=quarto-callout-note-color-frame, opacityback=0, toprule=.15mm, left=2mm, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Expand to get the OxCal code for the model shown in Figures 3 and 4}, titlerule=0mm, colback=white]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ // Model loosely based on straigraphy in Holbrook et al. 2024}
+\NormalTok{ // BRAMS{-}4175 excluded for reason outlined in text}
+\NormalTok{ // 15 simulated dates between AD 250 and AD 350 }
+\NormalTok{ Options()}
+\NormalTok{ \{}
+\NormalTok{  Resolution=1;}
+\NormalTok{ \};}
+\NormalTok{ Plot()}
+\NormalTok{ \{}
+\NormalTok{  Sequence("Gloucester: Barton cemtery")}
+\NormalTok{  \{}
+\NormalTok{   Boundary("StartBartonCemteryActivity");}
+\NormalTok{   Phase("Barton Cemtery")}
+\NormalTok{   \{}
+\NormalTok{    Sequence("Barton Cemtery")}
+\NormalTok{    \{}
+\NormalTok{     Phase("Period 1")}
+\NormalTok{     \{}
+\NormalTok{      R\_Date("SUERC{-}58717", 1874, 28);}
+\NormalTok{      After("Period 1 Media studies coins")}
+\NormalTok{      \{}
+\NormalTok{       U("Ditch 7965", 85, 96, 1);}
+\NormalTok{      \};}
+\NormalTok{     \};}
+\NormalTok{     Phase("Period 2")}
+\NormalTok{     \{}
+\NormalTok{      Sequence("Cemetery")}
+\NormalTok{      \{}
+\NormalTok{       Boundary("StartBartonCemetery");}
+\NormalTok{       Phase("Cemetery")}
+\NormalTok{       \{}
+\NormalTok{        Phase("Media Studies")}
+\NormalTok{        \{}
+\NormalTok{         First("FirstMediaStudiesburial");}
+\NormalTok{         R\_Date("SUERC{-}58711", 1748, 29);}
+\NormalTok{         R\_Date("SUERC{-}58712", 1855, 31);}
+\NormalTok{         R\_Date("SUERC{-}58713", 1759, 29);}
+\NormalTok{         R\_Date("SUERC{-}59634", 1664, 29);}
+\NormalTok{         R\_Date("SUERC{-}59806", 1713, 27);}
+\NormalTok{         After("Period 2 Media Studies Coins")}
+\NormalTok{         \{}
+\NormalTok{          U("Sk6133", 260, 290, 1);}
+\NormalTok{          U("Sk6133", 260, 290, 1);}
+\NormalTok{          U("Sk6137", 270, 290, 1);}
+\NormalTok{          U("Sk6175", 313.0, 315.0, 0.1);}
+\NormalTok{          U("Sk6326", 270, 290, 1);}
+\NormalTok{          U("Sk6550", 260, 290, 1);}
+\NormalTok{          U("Sk6601", 270, 290, 1);}
+\NormalTok{          U("Sk6604", 270, 290, 1);}
+\NormalTok{          U("Sk6903", 260, 290, 1);}
+\NormalTok{          U("Sk7082", 286, 293, 1);}
+\NormalTok{          U("Sk6685", 260, 290, 1);}
+\NormalTok{         \};}
+\NormalTok{         Span("MediaStudiesburial");}
+\NormalTok{         Last("LastMediaStudiesburial");}
+\NormalTok{        \};}
+\NormalTok{        Phase("Block M")}
+\NormalTok{        \{}
+\NormalTok{         First("FirstBurialBlockM");}
+\NormalTok{         R\_Date("BRAMS{-}4172", 1751, 25);}
+\NormalTok{         R\_Date("BRAMS{-}4173", 1778, 25);}
+\NormalTok{         R\_Date("BRAMS{-}4174", 1739, 25);}
+\NormalTok{         R\_Date("BRAMS{-}4175", 1967, 27)}
+\NormalTok{         \{}
+\NormalTok{          Outlier();}
+\NormalTok{         \};}
+\NormalTok{         R\_Simulate("AD 285", 285, 20);}
+\NormalTok{         R\_Simulate("AD 349", 349, 20);}
+\NormalTok{         R\_Simulate("AD 269", 269, 20);}
+\NormalTok{         R\_Simulate("AD 256", 256, 20);}
+\NormalTok{         R\_Simulate("AD 288", 288, 20);}
+\NormalTok{         R\_Simulate("AD 282", 282, 20);}
+\NormalTok{         R\_Simulate("AD 298", 298, 20);}
+\NormalTok{         R\_Simulate("AD 260", 260, 20);}
+\NormalTok{         R\_Simulate("AD 307", 307, 20);}
+\NormalTok{         R\_Simulate("AD 271", 271, 20);}
+\NormalTok{         R\_Simulate("AD 287", 287, 20);}
+\NormalTok{         R\_Simulate("AD 274", 274, 20);}
+\NormalTok{         R\_Simulate("AD 324", 324, 20);}
+\NormalTok{         R\_Simulate("AD 272", 272, 20);}
+\NormalTok{         R\_Simulate("AD 284", 284, 20);}
+\NormalTok{         After("Block M Coins")}
+\NormalTok{         \{}
+\NormalTok{          U("Sk1119", 348, 350, 1);}
+\NormalTok{          U("Sk1873", 350, 353, 1);}
+\NormalTok{          U("Sk1519", 69, 79, 1);}
+\NormalTok{          U("Sk2017", 187.0, 189.0, 0.1);}
+\NormalTok{          U("Sk1831", 350, 353, 1);}
+\NormalTok{          U("Sk1474", 364, 378, 1);}
+\NormalTok{         \};}
+\NormalTok{         Span("BlockMburial");}
+\NormalTok{         Last("LastBurialBlockM");}
+\NormalTok{        \};}
+\NormalTok{       \};}
+\NormalTok{       Span("BartonCemetery");}
+\NormalTok{       Boundary("EndBartonCemetery");}
+\NormalTok{      \};}
+\NormalTok{      Phase("Well 7481")}
+\NormalTok{      \{}
+\NormalTok{       R\_Date("SUERC{-}58710", 1649, 31);}
+\NormalTok{      \};}
+\NormalTok{      Phase("Deposit 6569")}
+\NormalTok{      \{}
+\NormalTok{       R\_Date("SUERC{-}61221", 1927, 29);}
+\NormalTok{      \};}
+\NormalTok{      After("Period 2 Media studies coins")}
+\NormalTok{      \{}
+\NormalTok{       U("Layer 6250", 364, 378, 1);}
+\NormalTok{      \};}
+\NormalTok{      After("Period 2 Block M coins")}
+\NormalTok{      \{}
+\NormalTok{       U("Ditch E", 69, 79, 1);}
+\NormalTok{       U("layer 1350", 81, 96, 1);}
+\NormalTok{       U("layer 1358", 85.0, 87.0, 01);}
+\NormalTok{       U("layer 1002", 343, 348, 1);}
+\NormalTok{       U("layer 1352", 364, 348, 1);}
+\NormalTok{      \};}
+\NormalTok{     \};}
+\NormalTok{     Phase("Period 3")}
+\NormalTok{     \{}
+\NormalTok{      After("Pit 6108")}
+\NormalTok{      \{}
+\NormalTok{       R\_Date("SUERC{-}61220", 1920, 29);}
+\NormalTok{      \};}
+\NormalTok{      After("Period 3 Media studies coins")}
+\NormalTok{      \{}
+\NormalTok{       U("Pit 7803", 323.0, 325.0, 0.1);}
+\NormalTok{       U("Layer 7803", 364, 378, 1);}
+\NormalTok{      \};}
+\NormalTok{     \};}
+\NormalTok{     Phase("Period 4")}
+\NormalTok{     \{}
+\NormalTok{      R\_Date("SUERC{-}61222", 1100, 27);}
+\NormalTok{      After("Period 4 Media studies coins")}
+\NormalTok{      \{}
+\NormalTok{       U("Layer 6070", 388, 402, 1);}
+\NormalTok{       U("Cleaning layer 6077", 267.0, 269.0, 0.1);}
+\NormalTok{      \};}
+\NormalTok{     \};}
+\NormalTok{     Phase("Period 5")}
+\NormalTok{     \{}
+\NormalTok{      After("Period 5 Block M coins")}
+\NormalTok{      \{}
+\NormalTok{       U("Soil layer 1276", 330, 335, 1);}
+\NormalTok{       U("Soil layer 1276", 270, 273, 1);}
+\NormalTok{       U("Ditch 1705", 364, 378, 1);}
+\NormalTok{       U("Ditch 1296", 318, 324, 1);}
+\NormalTok{       U("Posthole 1114", 307, 318, 1);}
+\NormalTok{      \};}
+\NormalTok{     \};}
+\NormalTok{     Phase("Period 6")}
+\NormalTok{     \{}
+\NormalTok{      After("Period 6 Block M coins")}
+\NormalTok{      \{}
+\NormalTok{       U("Garden soil 1326", 367, 375, 1);}
+\NormalTok{       U("Garden soil 1358", 367, 378, 1);}
+\NormalTok{       U("Garden soil 1358", 77.0, 79.0, 0.1);}
+\NormalTok{       U("Garden soil 1358", 81, 96, 1);}
+\NormalTok{       U("Garden soil 1358", 293, 296, 1);}
+\NormalTok{       U("Garden soil 1358", 270, 290, 1);}
+\NormalTok{       U("Garden soil 1358", 270, 291, 1);}
+\NormalTok{       U("Garden soil 1358", 270, 290, 1);}
+\NormalTok{       U("Garden soil 1358", 270, 290, 1);}
+\NormalTok{       U("Garden soil 1358", 270, 290, 1);}
+\NormalTok{       U("Garden soil 1358", 270, 290, 1);}
+\NormalTok{       U("Garden soil 1358", 270, 290, 1);}
+\NormalTok{       U("Garden soil 1358", 322, 233, 1);}
+\NormalTok{       U("Garden soil 1358", 330, 335, 1);}
+\NormalTok{       U("Garden soil 1358", 330, 335, 1);}
+\NormalTok{       U("Garden soil 1358", 330, 335, 1);}
+\NormalTok{       U("Garden soil 1358", 367, 375, 1);}
+\NormalTok{      \};}
+\NormalTok{     \};}
+\NormalTok{    \};}
+\NormalTok{    Phase("Unstratified coins")}
+\NormalTok{    \{}
+\NormalTok{     After("Block M coins")}
+\NormalTok{     \{}
+\NormalTok{      U("", 386, 293, 1);}
+\NormalTok{      U("", 318, 324, 1);}
+\NormalTok{     \};}
+\NormalTok{     After("Media Studies coins")}
+\NormalTok{     \{}
+\NormalTok{      U("Cleaning layer 6150", 66.0, 68.0, 0.1);}
+\NormalTok{      U("Cleaning layer 6077", 270, 290, 1);}
+\NormalTok{      U("Cleaning layer 6077", 267, 269, 0.1);}
+\NormalTok{      U("Unstrat", 268, 270, 1);}
+\NormalTok{     \};}
+\NormalTok{    \};}
+\NormalTok{    Span("BartonOverall");}
+\NormalTok{   \};}
+\NormalTok{   Boundary("EndBartonCemteryActivity");}
+\NormalTok{  \};}
+\NormalTok{ \};}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+\section{Simulations}\label{simulations}
+
+\subsection{Introduction}\label{introduction-1}
+
+We have constructed simulation models to determine the potential of
+further radiocarbon determinations from Gloucester Barton cemetery for
+improving the precision of estimates for the chronology of the cemetery.
+
+The components of a simulation model are those of any model. First the
+available informative prior beliefs are established, from the model of
+existing dates (see Figure~\ref{fig-03} \& Figure~\ref{fig-04}) and from
+the stratigraphic matrix of suitable samples. After this, radiocarbon
+dates can be simulated from the pool of suitable datable material and
+the appropriate prior information incorporated into the simulation
+model. Errors on the measurements are estimated from those recently
+obtained by the selected laboratory on similar material of similar age.
+In this process the actual date of the site has to be fed into the
+model, which is done on the basis of our existing understanding of the
+site chronology. Multiple models can be run for different actual ages
+and for different sampling strategies to see which approach might be
+most effective. Some examples of the simulations created during the
+process of identifying the number of samples required for this project
+are shown in Figure 2.
+
+\subsection{Methodology}\label{methodology}
+
+Calendar dates for each model were obtained using random number
+generation. This is a process of creating a sequence of numbers that
+don't follow any predictable pattern. They are widely used in
+simulations, cryptography and statistical modelling. We used the
+sample() function (2024)( to generate random integers (i.e.~the dates)
+by sampling from a specified range. Below is the syntax:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sample}\NormalTok{(}\DecValTok{250}\SpecialCharTok{:}\DecValTok{350}\NormalTok{, }\DecValTok{15}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] 262 332 250 253 270 296 338 260 334 347 297 313 301 290 312
+\end{verbatim}
+
+Where: • x: Vector of numbers to sample from (eg AD 250--350);
+
+• size: Number of values to return (15: the number of inhumations being
+sample for isotope \& aDNA));
+
+• replace: Whether sampling should be with replacement (FALSE).
+
+We then used this code as part of a large piece of code (see below) to
+generate a series of calendar dates for the R\_Simulate function in
+OxCal (Bronk Ramsey, 2009) for simulations from 15 dates down to 2 dates
+and incorporated them into a series of models. The models are based on
+the assumption that the Block M part of the cemetery was in continuous
+use for a period of time ((Buck et al., 1992)) {[}100 years{]}, between
+AD 250 and AD 350. Time and resources, given this exercise required the
+running of OxCal 140 models, were limited and we therefore were unable
+to evaluate what potential differences in the duration of burial
+activity and when it began and finished made to our date estimate.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(openxlsx)}
+\FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(writexl)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+
+\CommentTok{\# Create a new workbook}
+\NormalTok{wb }\OtherTok{\textless{}{-}} \FunctionTok{createWorkbook}\NormalTok{()}
+
+\CommentTok{\# Loop from 15 dates down to 2 dates}
+\ControlFlowTok{for}\NormalTok{(n }\ControlFlowTok{in} \DecValTok{15}\SpecialCharTok{:}\DecValTok{2}\NormalTok{) \{}
+  \CommentTok{\# Simulate n dates between AD 250 and AD 350}
+\NormalTok{  dates }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\DecValTok{250}\SpecialCharTok{:}\DecValTok{350}\NormalTok{, n, }\AttributeTok{replace =} \ConstantTok{FALSE}\NormalTok{)}
+  
+  \CommentTok{\# Debug: check what dates contains}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"n ="}\NormalTok{, n, }\StringTok{"dates ="}\NormalTok{, }\FunctionTok{paste}\NormalTok{(dates, }\AttributeTok{collapse =} \StringTok{", "}\NormalTok{)))}
+  
+  \CommentTok{\# Create a data frame}
+\NormalTok{  df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Simulated\_Dates =}\NormalTok{ dates)}
+  
+  \CommentTok{\# Create sheet name}
+\NormalTok{  sheet\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(n, }\StringTok{"\_simulated\_dates"}\NormalTok{)}
+  
+  \CommentTok{\# Add worksheet and write data}
+  \FunctionTok{addWorksheet}\NormalTok{(wb, sheet\_name)}
+  \FunctionTok{writeData}\NormalTok{(wb, sheet\_name, df)}
+\NormalTok{\}}
+
+\CommentTok{\# Save the workbook}
+\FunctionTok{saveWorkbook}\NormalTok{(wb, }\StringTok{"GlosBartonCemetery\_simulated\_dates.xlsx"}\NormalTok{, }\AttributeTok{overwrite =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Figure~\ref{fig-05} shows an extract of the full model, Block M, with
+the 15 simulated dates for burials shown (R\_Simulate\ldots.). Each
+model was run 10 times.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/GlosBartonCemeterySimulation01.png}}
+
+}
+
+\caption{\label{fig-05}Part of OxCal simulation: Block M with 15
+simulated burial dates (R\_Simulate 2 simulated dates AD 250-350)}
+
+\end{figure}%
+
+\section{Analysis of simulation
+outputs}\label{analysis-of-simulation-outputs}
+
+\subsection{Extracting output from OxCal
+models}\label{extracting-output-from-oxcal-models}
+
+We extracted output from the OxCal models using the R code (see below).
+Running each model ten times as part of one OxCal analysis results in a
+considerable amount of data; hopefully the code makes this process less
+time consuming.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(openxlsx)}
+\FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(writexl)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+
+\CommentTok{\# R code to extract @FirstBurialBlockM \& @LastBurialBlockM estimates from Barton Cemetery simulation file}
+\CommentTok{\# This is an example for extracting the parameters @FirstBurialBlockM and @LastBurialBlockM from a single OxCal files (10 models) with n simulated dates, You need to repeat for each OxCal model}
+
+\CommentTok{\# Read the file (suppress warning about incomplete final line)}
+\NormalTok{file\_path }\OtherTok{\textless{}{-}} \StringTok{"GlosBartonCemeterySimulation06.txt"} \CommentTok{\#You will need to change the file name}
+\NormalTok{data\_lines }\OtherTok{\textless{}{-}} \FunctionTok{readLines}\NormalTok{(file\_path, }\AttributeTok{warn =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# Extract lines containing @FirstBurialBlockM}
+\NormalTok{burial\_lines }\OtherTok{\textless{}{-}}\NormalTok{ data\_lines[}\FunctionTok{grep}\NormalTok{(}\StringTok{"@FirstBurialBlockM"}\NormalTok{, data\_lines)]}
+
+\CommentTok{\# Display the found lines}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Found"}\NormalTok{, }\FunctionTok{length}\NormalTok{(burial\_lines), }\StringTok{"@FirstBurialBlockM entries:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(burial\_lines)}
+
+\CommentTok{\# Extract numerical values from @FirstBurialBlockM lines}
+
+\CommentTok{\# Initialize vectors for different columns based on the visible pattern}
+\NormalTok{burial\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{line\_number =} \FunctionTok{integer}\NormalTok{(),}
+  \AttributeTok{estimate\_1 =} \FunctionTok{numeric}\NormalTok{(),}
+  \AttributeTok{estimate\_2 =} \FunctionTok{numeric}\NormalTok{(),}
+  \AttributeTok{estimate\_3 =} \FunctionTok{numeric}\NormalTok{(),}
+  \AttributeTok{estimate\_4 =} \FunctionTok{numeric}\NormalTok{(),}
+  \AttributeTok{stringsAsFactors =} \ConstantTok{FALSE}
+\NormalTok{)}
+
+\CommentTok{\# Process each @FirstBurialBlockM line}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_along}\NormalTok{(burial\_lines)) \{}
+\NormalTok{  line }\OtherTok{\textless{}{-}}\NormalTok{ burial\_lines[i]}
+  
+  \CommentTok{\# Extract all numbers from the line}
+\NormalTok{  numbers }\OtherTok{\textless{}{-}} \FunctionTok{regmatches}\NormalTok{(line, }\FunctionTok{gregexpr}\NormalTok{(}\StringTok{"{-}?}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d+}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{.?}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d*"}\NormalTok{, line))[[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{  numbers }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(numbers)}
+  
+  \CommentTok{\# Create a row for the data frame (pad with NA if fewer than 4 values)}
+\NormalTok{  row\_data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(i, numbers, }\FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{4} \SpecialCharTok{{-}} \FunctionTok{length}\NormalTok{(numbers)))[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{]}
+\NormalTok{  burial\_data }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(burial\_data, row\_data)}
+\NormalTok{\}}
+
+\CommentTok{\# Set proper column names}
+\FunctionTok{colnames}\NormalTok{(burial\_data) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Run"}\NormalTok{, }\StringTok{"68\%start"}\NormalTok{, }\StringTok{"68\%end"}\NormalTok{, }\StringTok{"95\%start"}\NormalTok{, }\StringTok{"95\%end"}\NormalTok{)}
+
+\CommentTok{\# Display the structured data}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Structured burial estimates:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(burial\_data)}
+
+
+\NormalTok{burial\_data }\OtherTok{\textless{}{-}}\NormalTok{ burial\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{range\_68 =} \StringTok{\textasciigrave{}}\AttributeTok{68\%end}\StringTok{\textasciigrave{}} \SpecialCharTok{{-}} \StringTok{\textasciigrave{}}\AttributeTok{68\%start}\StringTok{\textasciigrave{}}\NormalTok{,}
+         \AttributeTok{range\_95 =} \StringTok{\textasciigrave{}}\AttributeTok{95\%end}\StringTok{\textasciigrave{}} \SpecialCharTok{{-}} \StringTok{\textasciigrave{}}\AttributeTok{95\%start}\StringTok{\textasciigrave{}}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(burial\_data)}
+
+\CommentTok{\# Save the data}
+\FunctionTok{write\_xlsx}\NormalTok{(burial\_data, }\StringTok{"BartonBlockM06starts.xlsx"}\NormalTok{)}
+
+\CommentTok{\# PART 2}
+\CommentTok{\# Extract lines containing @LastBurialBlockM}
+\NormalTok{burial\_lines2 }\OtherTok{\textless{}{-}}\NormalTok{ data\_lines[}\FunctionTok{grep}\NormalTok{(}\StringTok{"@LastBurialBlockM"}\NormalTok{, data\_lines)]}
+
+\CommentTok{\# Display the found lines}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Found"}\NormalTok{, }\FunctionTok{length}\NormalTok{(burial\_lines2), }\StringTok{"@LastBurialBlockM entries:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(burial\_lines)}
+
+\CommentTok{\# Extract numerical values from @FirstBurialBlockM lines}
+
+\CommentTok{\# Initialize vectors for different columns based on the visible pattern}
+\NormalTok{burial\_data2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{line\_number =} \FunctionTok{integer}\NormalTok{(),}
+  \AttributeTok{estimate\_1 =} \FunctionTok{numeric}\NormalTok{(),}
+  \AttributeTok{estimate\_2 =} \FunctionTok{numeric}\NormalTok{(),}
+  \AttributeTok{estimate\_3 =} \FunctionTok{numeric}\NormalTok{(),}
+  \AttributeTok{estimate\_4 =} \FunctionTok{numeric}\NormalTok{(),}
+  \AttributeTok{stringsAsFactors =} \ConstantTok{FALSE}
+\NormalTok{)}
+
+\CommentTok{\# Process each @LastBurialBlockM line}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_along}\NormalTok{(burial\_lines2)) \{}
+\NormalTok{  line }\OtherTok{\textless{}{-}}\NormalTok{ burial\_lines2[i]}
+  
+  \CommentTok{\# Extract all numbers from the line}
+\NormalTok{  numbers }\OtherTok{\textless{}{-}} \FunctionTok{regmatches}\NormalTok{(line, }\FunctionTok{gregexpr}\NormalTok{(}\StringTok{"{-}?}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d+}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{.?}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d*"}\NormalTok{, line))[[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{  numbers }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(numbers)}
+  
+  \CommentTok{\# Create a row for the data frame (pad with NA if fewer than 4 values)}
+\NormalTok{  row\_data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(i, numbers, }\FunctionTok{rep}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\DecValTok{4} \SpecialCharTok{{-}} \FunctionTok{length}\NormalTok{(numbers)))[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{]}
+\NormalTok{  burial\_data2 }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(burial\_data2, row\_data)}
+\NormalTok{\}}
+
+\CommentTok{\# Set proper column names}
+\FunctionTok{colnames}\NormalTok{(burial\_data2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Run"}\NormalTok{, }\StringTok{"68\%start"}\NormalTok{, }\StringTok{"68\%end"}\NormalTok{, }\StringTok{"95\%start"}\NormalTok{, }\StringTok{"95\%end"}\NormalTok{)}
+
+\CommentTok{\# Display the structured data}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Structured burial estimates:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(burial\_data2)}
+
+
+\NormalTok{burial\_data2 }\OtherTok{\textless{}{-}}\NormalTok{ burial\_data2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{range\_68 =} \StringTok{\textasciigrave{}}\AttributeTok{68\%end}\StringTok{\textasciigrave{}} \SpecialCharTok{{-}} \StringTok{\textasciigrave{}}\AttributeTok{68\%start}\StringTok{\textasciigrave{}}\NormalTok{,}
+         \AttributeTok{range\_95 =} \StringTok{\textasciigrave{}}\AttributeTok{95\%end}\StringTok{\textasciigrave{}} \SpecialCharTok{{-}} \StringTok{\textasciigrave{}}\AttributeTok{95\%start}\StringTok{\textasciigrave{}}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(burial\_data2)}
+
+\CommentTok{\# Save the data}
+\FunctionTok{write\_xlsx}\NormalTok{(burial\_data2, }\StringTok{"BartonBlockM06ends.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Visualisation of output from OxCal
+models}\label{visualisation-of-output-from-oxcal-models}
+
+Figure~\ref{fig-06} and Figure~\ref{fig-07} show a summary of the date
+estimate for the parameter \emph{FirstBlockMBurial}. It is clear,
+particularly, on Figure~\ref{fig-06} that the submission of more
+radiocarbon samples does not increase precision. In fact the submission
+of further samples could increase the bandwith of the date estimate (eg,
+13 \& 14 samples).
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/BlockMFirst.png}}
+
+}
+
+\caption{\label{fig-06}Summary of 140 simulation models; 10 models for
+15\ldots.2 simulated dates AD 250-350, showing precision vs sample size
+for \emph{FirstBlockMBurial}}
+
+\end{figure}%
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Visualizing differences across multiple sample sizes (15, 14, 13...2 samples)}
+
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(tidyr)}
+\FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(gridExtra)}
+\FunctionTok{library}\NormalTok{(viridis)}
+
+\CommentTok{\# Read the data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"Query.xlsx"}\NormalTok{, }\AttributeTok{sheet =} \StringTok{"BlockMStarts"}\NormalTok{) }\CommentTok{\# change data to name of site name or something else}
+
+\CommentTok{\# Extract sample size from Parameter column (assumes format like "15Start", "14Start", etc.)}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Sample\_Size }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{gsub}\NormalTok{(}\StringTok{"Start"}\NormalTok{, }\StringTok{""}\NormalTok{, data}\SpecialCharTok{$}\NormalTok{Parameter))}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Sample\_Size\_Label }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Sample\_Size, }\StringTok{" samples"}\NormalTok{)}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Model\_Run }\OtherTok{\textless{}{-}} \FunctionTok{ave}\NormalTok{(}\FunctionTok{seq\_along}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Parameter), data}\SpecialCharTok{$}\NormalTok{Parameter, }\AttributeTok{FUN =}\NormalTok{ seq\_along)}
+
+\CommentTok{\# Create a duration column (End {-} Start)}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Duration }\OtherTok{\textless{}{-}}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{End }\SpecialCharTok{{-}}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{Start}
+
+\CommentTok{\# TREND ANALYSIS {-} Shows how precision changes with sample size}
+\NormalTok{summary\_stats }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Sample\_Size) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{Mean\_Start =} \FunctionTok{mean}\NormalTok{(Start),}
+    \AttributeTok{SD\_Start =} \FunctionTok{sd}\NormalTok{(Start),}
+    \AttributeTok{Mean\_End =} \FunctionTok{mean}\NormalTok{(End),}
+    \AttributeTok{SD\_End =} \FunctionTok{sd}\NormalTok{(End),}
+    \AttributeTok{Mean\_Duration =} \FunctionTok{mean}\NormalTok{(Duration),}
+    \AttributeTok{SD\_Duration =} \FunctionTok{sd}\NormalTok{(Duration),}
+    \AttributeTok{CV\_Start =} \FunctionTok{sd}\NormalTok{(Start)}\SpecialCharTok{/}\FunctionTok{mean}\NormalTok{(Start) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{,  }\CommentTok{\# Coefficient of variation}
+    \AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}
+\NormalTok{  )}
+
+\NormalTok{BlockMFirst }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(summary\_stats, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Sample\_Size)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Mean\_Start, }\AttributeTok{color =} \StringTok{"Start Date"}\NormalTok{), }\AttributeTok{size =} \FloatTok{1.2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Mean\_Start, }\AttributeTok{color =} \StringTok{"Start Date"}\NormalTok{), }\AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_ribbon}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ Mean\_Start }\SpecialCharTok{{-}}\NormalTok{ SD\_Start, }\AttributeTok{ymax =}\NormalTok{ Mean\_Start }\SpecialCharTok{+}\NormalTok{ SD\_Start, }
+                  \AttributeTok{fill =} \StringTok{"Start Date"}\NormalTok{), }\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Mean\_End, }\AttributeTok{color =} \StringTok{"End Date"}\NormalTok{), }\AttributeTok{size =} \FloatTok{1.2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Mean\_End, }\AttributeTok{color =} \StringTok{"End Date"}\NormalTok{), }\AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_ribbon}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ Mean\_End }\SpecialCharTok{{-}}\NormalTok{ SD\_End, }\AttributeTok{ymax =}\NormalTok{ Mean\_End }\SpecialCharTok{+}\NormalTok{ SD\_End, }
+                  \AttributeTok{fill =} \StringTok{"End Date"}\NormalTok{), }\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Start Date"} \OtherTok{=} \StringTok{"\#2E86AB"}\NormalTok{, }\StringTok{"End Date"} \OtherTok{=} \StringTok{"\#2E86AB"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Start Date"} \OtherTok{=} \StringTok{"\#2E86AB"}\NormalTok{, }\StringTok{"End Date"} \OtherTok{=} \StringTok{"\#2E86AB"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{sort}\NormalTok{(}\FunctionTok{unique}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Sample\_Size))) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"FirstBlockMBurial vs precision vs sample size"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"Mean estimates with ±1 SD ribbons"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Number of Samples"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Posterior density estimate (cal AD)"}\NormalTok{,}
+       \AttributeTok{color =} \StringTok{"Boundary"}\NormalTok{,}
+       \AttributeTok{fill =} \StringTok{"Boundary"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"BlockMFirst.png"}\NormalTok{, BlockMFirst, }
+       \AttributeTok{width =} \DecValTok{8}\NormalTok{, }\AttributeTok{height =} \DecValTok{6}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/BlockMFirstBurial.png}}
+
+}
+
+\caption{\label{fig-07}Summary of 140 simulation models; 10 models for
+15\ldots.2 simulated dates AD 250-350, showing bandwidth for
+\emph{FirstBlockMBurial}}
+
+\end{figure}%
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Visualizing differences across multiple sample sizes (15, 14, 13...2 samples)}
+
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(tidyr)}
+\FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(gridExtra)}
+\FunctionTok{library}\NormalTok{(viridis)}
+
+\CommentTok{\# Read the data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"Query.xlsx"}\NormalTok{, }\AttributeTok{sheet =} \StringTok{"BlockMStarts"}\NormalTok{) }\CommentTok{\# change data to name of site name or something else}
+
+\CommentTok{\# Extract sample size from Parameter column (assumes format like "15Start", "14Start", etc.)}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Sample\_Size }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{gsub}\NormalTok{(}\StringTok{"Start"}\NormalTok{, }\StringTok{""}\NormalTok{, data}\SpecialCharTok{$}\NormalTok{Parameter))}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Sample\_Size\_Label }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Sample\_Size, }\StringTok{" samples"}\NormalTok{)}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Model\_Run }\OtherTok{\textless{}{-}} \FunctionTok{ave}\NormalTok{(}\FunctionTok{seq\_along}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Parameter), data}\SpecialCharTok{$}\NormalTok{Parameter, }\AttributeTok{FUN =}\NormalTok{ seq\_along)}
+
+\CommentTok{\# Create a duration column (End {-} Start)}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Duration }\OtherTok{\textless{}{-}}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{End }\SpecialCharTok{{-}}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{Start}
+
+\CommentTok{\# TIMELINE VISUALIZATION {-} Shows date ranges across all sample sizes}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Sample\_Group }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Sample\_Size)}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{y\_position }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{factor}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Sample\_Size, }\StringTok{"\_"}\NormalTok{, data}\SpecialCharTok{$}\NormalTok{Model\_Run)))}
+
+\NormalTok{BlockMFirstBurial }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =} \FunctionTok{reorder}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{Sample\_Size, }\StringTok{" samples {-} Run "}\NormalTok{, data}\SpecialCharTok{$}\NormalTok{Model\_Run), }
+                                   \SpecialCharTok{{-}}\NormalTok{y\_position))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_segment}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Start, }\AttributeTok{xend =}\NormalTok{ End, }\AttributeTok{color =} \FunctionTok{factor}\NormalTok{(Sample\_Size)), }
+               \AttributeTok{size =} \DecValTok{2}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Start, }\AttributeTok{color =} \FunctionTok{factor}\NormalTok{(Sample\_Size)), }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ End, }\AttributeTok{color =} \FunctionTok{factor}\NormalTok{(Sample\_Size)), }\AttributeTok{size =} \FloatTok{1.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_viridis\_d}\NormalTok{(}\AttributeTok{option =} \StringTok{"plasma"}\NormalTok{, }\AttributeTok{direction =} \SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\AttributeTok{name =} \StringTok{"Sample Size"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Barton Cemetery: FirstBurialBlockM by addional 14C measurements"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"Bandwidth for each simulation"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Date (cal AD)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Model Run"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{6}\NormalTok{),}
+        \AttributeTok{legend.position =} \StringTok{"right"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{guides}\NormalTok{(}\AttributeTok{color =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{override.aes =} \FunctionTok{list}\NormalTok{(}\AttributeTok{size =} \DecValTok{3}\NormalTok{)))}
+
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"BlockMFirstBurial.png"}\NormalTok{, BlockMFirstBurial, }
+       \AttributeTok{width =} \DecValTok{8}\NormalTok{, }\AttributeTok{height =} \DecValTok{6}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Figure~\ref{fig-08} and Figure~\ref{fig-09} show a summary of the date
+estimate for the parameter \emph{LastBlockMBurial}. It is clear,
+particularly, on Figure~\ref{fig-09} that the submission of an 8
+additional, or more radiocarbon samples does increase precision, note
+how the two lines gets closer together. The increase in precision is
+though not signficant.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/BlockMLast.png}}
+
+}
+
+\caption{\label{fig-08}Summary of 140 simulation models; 10 models for
+15\ldots.2 simulated dates AD 250-350, showing precision vs sample size
+for \emph{LastBlockMBurial}}
+
+\end{figure}%
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/BlockMLastBurial.png}}
+
+}
+
+\caption{\label{fig-09}Summary of 140 simulation models; 10 models for
+15\ldots.2 simulated dates AD 250-350, showing bandwidth for
+\emph{LastBlockMBurial}}
+
+\end{figure}%
+
+\section{Conclusion}\label{conclusion}
+
+The submission of more samples from the Block M cemetery is no
+recommended, unless specific burials are identified as particularly
+waranting scientific dating, ie they are spatially isolated from the
+main burial group, have unsual pathologies or isotopic signitures.
+
+The analysis outlined above has been undertaken without access to the
+full site records, ie matricies, startigraphic narrative and thus the
+conlusions may need to be revised should this infomtayion become
+avaialble int he future.
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\vspace{1em}
+
+\bibitem[\citeproctext]{ref-bronkramsey2009}
+Bronk Ramsey, C. (2009). Bayesian Analysis of Radiocarbon Dates.
+\emph{Radiocarbon}, \emph{51}(1), 337--360.
+\url{https://doi.org/10.1017/s0033822200033865}
+
+\bibitem[\citeproctext]{ref-buck1992}
+Buck, C. E., Litton, C. D., \& Smith, A. F. M. (1992). Calibration of
+radiocarbon results pertaining to related archaeological events.
+\emph{Journal of Archaeological Science}, \emph{19}(5), 497--512.
+\url{https://doi.org/10.1016/0305-4403(92)90025-x}
+
+\bibitem[\citeproctext]{ref-dunbar2016}
+Dunbar, E., Cook, G. T., Naysmith, P., Tripney, B. G., \& Xu, S. (2016).
+AMS {\textsuperscript{14}}C Dating at the Scottish Universities
+Environmental Research Centre (SUERC) Radiocarbon Dating Laboratory
+{\textendash} Corrigendum. \emph{Radiocarbon}, \emph{58}(1), 233--233.
+\url{https://doi.org/10.1017/rdc.2016.14}
+
+\bibitem[\citeproctext]{ref-knowles_et_al_2019}
+Knowles, T. D. J., Monaghan, P. S., \& Evershed, R. P. (2019).
+Radiocarbon Sample Preparation Procedures and the First Status Report
+from the Bristol Radiocarbon AMS (BRAMS) Facility. \emph{Radiocarbon},
+\emph{61}(5), 1541--1550. \url{https://doi.org/10.1017/rdc.2019.28}
+
+\bibitem[\citeproctext]{ref-lanting_vanderplict_1988}
+Lanting, J. N., \& Plicht, J. V. D. (1998). Reservoir effects and
+apparent \(^{14}C-Ages\). \emph{The Journal of Irish Archaeology},
+\emph{9}, 151--165. Retrieved from
+\url{http://www.jstor.org/stable/30001698}
+
+\bibitem[\citeproctext]{ref-base}
+R Core Team. (2024). R: A language and environment for statistical
+computing. Retrieved from \url{https://www.R-project.org/}
+
+\bibitem[\citeproctext]{ref-reimer2020}
+Reimer, P. J., Austin, W. E. N., Bard, E., Bayliss, A., Blackwell, P.
+G., Bronk Ramsey, C., et al. (2020). The IntCal20 Northern Hemisphere
+Radiocarbon Age Calibration Curve (0{\textendash}55 cal kBP).
+\emph{Radiocarbon}, \emph{62}(4), 725--757.
+\url{https://doi.org/10.1017/RDC.2020.41}
+
+\bibitem[\citeproctext]{ref-StuiverPolach1977}
+Stuiver, M., \& Polach, H. A. (1977). Discussion reporting of 14C data.
+\emph{Radiocarbon}, \emph{19}(3), 355--363.
+\url{https://doi.org/10.1017/S0033822200003672}
+
+\bibitem[\citeproctext]{ref-synal2007}
+Synal, H.-A., Stocker, M., \& Suter, M. (2007). MICADAS: A new compact
+radiocarbon AMS system. \emph{Nuclear Instruments and Methods in Physics
+Research Section B: Beam Interactions with Materials and Atoms},
+\emph{259}(1), 7--13.
+https://doi.org/\url{https://doi.org/10.1016/j.nimb.2007.01.138}
+
+\end{CSLReferences}
+
+::::
+
+
+
+
+\end{document}

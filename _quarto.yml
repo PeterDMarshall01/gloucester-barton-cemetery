@@ -1,0 +1,19 @@
+project:
+  type: default
+
+execute:
+  freeze: auto
+
+format:
+  html:
+    toc: true
+    toc-location: left
+    embed-resources: true
+    comments:
+      hypothesis: true
+  docx: default
+  jats: default
+  agu-pdf: default
+
+
+
